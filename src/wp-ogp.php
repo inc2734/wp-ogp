@@ -71,7 +71,7 @@ class Inc2734_WP_OGP {
 		$image = $this->OGP->get_image();
 
 		if ( empty( $image ) ) {
-			$image = get_theme_mod( 'default-og-image' );
+			$image = apply_filters( 'inc2734_wp_ogp_default_image', null );
 		}
 
 		return $image;
