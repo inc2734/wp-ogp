@@ -16,6 +16,6 @@ $ composer require inc2734/wp-ogp
 // $ogp = new Inc2734\WP_OGP\OGP();
 
 // When not Using composer auto loader
-include_once( get_template_directory() . '/vendor/inc2734/wp-ogp/src/wp-ogp.php' );
+include_once( get_theme_file_path( '/vendor/inc2734/wp-ogp/src/wp-ogp.php' ) );
 $ogp = new Inc2734_WP_OGP();
 ```
