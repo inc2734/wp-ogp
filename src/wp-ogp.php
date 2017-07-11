@@ -47,21 +47,21 @@ class Inc2734_WP_OGP {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		return $this->OGP->get_title();
+		return apply_filters( 'inc2734_wp_ogp_title', $this->OGP->get_title() );
 	}
 
 	public function get_type() {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		return $this->OGP->get_type();
+		return apply_filters( 'inc2734_wp_ogp_type', $this->OGP->get_type() );
 	}
 
 	public function get_url() {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		return $this->OGP->get_url();
+		return apply_filters( 'inc2734_wp_ogp_url', $this->OGP->get_url() );
 	}
 
 	public function get_image() {
@@ -72,6 +72,8 @@ class Inc2734_WP_OGP {
 
 		if ( empty( $image ) ) {
 			$image = apply_filters( 'inc2734_wp_ogp_default_image', null );
+		} else {
+			$image = apply_filters( 'inc2734_wp_ogp_image', $image );
 		}
 
 		return $image;
@@ -87,20 +89,26 @@ class Inc2734_WP_OGP {
 			$description = wp_strip_all_tags( get_bloginfo( 'description' ) );
 		}
 
-		return wp_trim_words( str_replace( array( "\r", "\n" ), '', $description ) );
+		return wp_trim_words(
+			str_replace(
+				array( "\r", "\n" ),
+				'',
+				apply_filters( 'inc2734_wp_ogp_description', $description )
+			)
+		);
 	}
 
 	public function get_site_name() {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		return $this->OGP->get_site_name();
+		return apply_filters( 'inc2734_wp_ogp_site_name', $this->OGP->get_site_name() );
 	}
 
 	public function get_locale() {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		return $this->OGP->get_locale();
+		return apply_filters( 'inc2734_wp_ogp_locale', $this->OGP->get_locale() );
 	}
 }
