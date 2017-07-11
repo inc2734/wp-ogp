@@ -68,15 +68,7 @@ class Inc2734_WP_OGP {
 		if ( ! $this->OGP ) {
 			return;
 		}
-		$image = $this->OGP->get_image();
-
-		if ( empty( $image ) ) {
-			$image = apply_filters( 'inc2734_wp_ogp_default_image', null );
-		} else {
-			$image = apply_filters( 'inc2734_wp_ogp_image', $image );
-		}
-
-		return $image;
+		return apply_filters( 'inc2734_wp_ogp_image', $this->OGP->get_image() );
 	}
 
 	public function get_description() {
