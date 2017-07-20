@@ -8,10 +8,10 @@ class Inc2734_WP_OGP_Front_Page extends Inc2734_WP_OGP_Abstract_Controller {
 			$this->type        = 'website';
 			$this->url         = get_permalink( $page_on_front );
 			$this->image       = wp_get_attachment_image_url( get_post_thumbnail_id( $page_on_front ), 'full' );
-			$this->description = $this->_get_description( $page_on_front );
+			$this->description = get_bloginfo( 'description' );
 		} else {
-			$this->type  = 'blog';
-			$this->url   = home_url();
+			$this->type = 'blog';
+			$this->url  = home_url();
 		}
 
 		$this->title = get_bloginfo( 'name' );

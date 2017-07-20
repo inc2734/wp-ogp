@@ -62,7 +62,7 @@ class OGPTest extends WP_UnitTestCase {
 		$this->assertEquals( 'website', $ogp->get_type() );
 		$this->assertEquals( home_url( '/' ), $ogp->get_url() );
 		$this->assertEquals( '', $ogp->get_image() );
-		$this->assertEquals( get_the_excerpt( $this->front_page_id ), $ogp->get_description() );
+		$this->assertEquals( get_bloginfo( 'description' ), $ogp->get_description() );
 		$this->assertEquals( get_bloginfo( 'name' ), $ogp->get_site_name() );
 		$this->assertEquals( get_locale(), $ogp->get_locale() );
 	}
@@ -78,7 +78,7 @@ class OGPTest extends WP_UnitTestCase {
 		$this->assertEquals( 'blog', $ogp->get_type() );
 		$this->assertEquals( get_permalink( $this->blog_page_id ), $ogp->get_url() );
 		$this->assertEquals( '', $ogp->get_image() );
-		$this->assertEquals( get_the_excerpt( $this->blog_page_id ), $ogp->get_description() );
+		$this->assertEquals( get_bloginfo( 'description' ), $ogp->get_description() );
 		$this->assertEquals( get_bloginfo( 'name' ), $ogp->get_site_name() );
 		$this->assertEquals( get_locale(), $ogp->get_locale() );
 	}
