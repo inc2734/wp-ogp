@@ -1,19 +1,25 @@
 <?php
-$includes = array(
-	'/app/abstract',
-	'/app/controller',
-);
-foreach ( $includes as $include ) {
-	foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {
-		require_once( $file );
-	}
-}
+/**
+ * @package inc2734/wp-ogp
+ * @author inc2734
+ * @license GPL-2.0+
+ */
 
 class Inc2734_WP_OGP {
 
 	protected $OGP;
 
 	public function __construct() {
+		$includes = array(
+			'/app/abstract',
+			'/app/controller',
+		);
+		foreach ( $includes as $include ) {
+			foreach ( glob( __DIR__ . $include . '/*.php' ) as $file ) {
+				require_once( $file );
+			}
+		}
+
 		if ( is_tax() ) {
 			$this->OGP = new Inc2734_WP_OGP_Taxonomy();
 		} elseif ( is_attachment() ) {

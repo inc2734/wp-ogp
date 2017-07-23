@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package inc2734/wp-ogp
+ * @author inc2734
+ * @license GPL-2.0+
+ */
+
 class Inc2734_WP_OGP_Front_Page extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$show_on_front = get_option( 'show_on_front' );

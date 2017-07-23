@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package inc2734/wp-ogp
+ * @author inc2734
+ * @license GPL-2.0+
+ */
+
 class Inc2734_WP_OGP_Page extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$this->title       = get_the_title();
