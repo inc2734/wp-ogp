@@ -69,12 +69,12 @@ abstract class Inc2734_WP_OGP_Abstract_Controller {
 	protected function _get_description( $post = null) {
 		$post = get_post( $post );
 
-		$description = wp_trim_words( wp_strip_all_tags( $post->post_excerpt ) );
+		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) ) );
 		if ( $description ) {
 			return $description;
 		}
 
-		$description = wp_trim_words( wp_strip_all_tags( $post->post_content ) );
+		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
 		if ( $description ) {
 			return $description;
 		}

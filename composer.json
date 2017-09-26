@@ -2,7 +2,7 @@
   "name": "inc2734/wp-ogp",
   "description": "A library for WordPress OGP.",
   "license": "GPL-2.0+",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "require": {
     "php": ">=5.6"
   },

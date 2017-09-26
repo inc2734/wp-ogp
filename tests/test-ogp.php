@@ -200,6 +200,18 @@ class OGPTest extends WP_UnitTestCase {
 		$this->assertEquals( get_locale(), $ogp->get_locale() );
 	}
 
+	public function test_single_has_shortcode() {
+		$newest_post = get_post( $this->post_ids[0] );
+		$newest_post_id = wp_update_post( [
+			'ID' => $newest_post->ID,
+			'post_excerpt' => '[gallery]description',
+		] );
+		$newest_post = get_post( $newest_post_id );
+		$this->go_to( get_permalink( $newest_post ) );
+		$ogp = new \Inc2734\WP_OGP\OGP();
+		$this->assertEquals( 'description', $ogp->get_description() );
+	}
+
 	public function test_post_type_archive() {
 		// No posts
 		$this->go_to( get_post_type_archive_link( $this->post_type ) );
