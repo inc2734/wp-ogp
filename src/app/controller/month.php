@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * OGP for month archive
+ */
 class Inc2734_WP_OGP_Month extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$year = get_query_var( 'year' );

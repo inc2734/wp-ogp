@@ -5,10 +5,21 @@
  * @license GPL-2.0+
  */
 
+/**
+ * Output OGP tags
+ *
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class Inc2734_WP_OGP {
 
-	protected $OGP;
+	/**
+	 * @var Inc2734_WP_OGP_Abstract_Controller
+	 */
+	protected $ogp;
 
+	/**
+	 * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+	 */
 	public function __construct() {
 		$includes = array(
 			'/app/abstract',
@@ -21,67 +32,67 @@ class Inc2734_WP_OGP {
 		}
 
 		if ( is_tax() ) {
-			$this->OGP = new Inc2734_WP_OGP_Taxonomy();
+			$this->ogp = new Inc2734_WP_OGP_Taxonomy();
 		} elseif ( is_attachment() ) {
-			$this->OGP = new Inc2734_WP_OGP_Attachment();
+			$this->ogp = new Inc2734_WP_OGP_Attachment();
 		} elseif ( is_page() && ! is_front_page() ) {
-			$this->OGP = new Inc2734_WP_OGP_Page();
+			$this->ogp = new Inc2734_WP_OGP_Page();
 		} elseif ( is_post_type_archive() ) {
-			$this->OGP = new Inc2734_WP_OGP_Post_Type_Archive();
+			$this->ogp = new Inc2734_WP_OGP_Post_Type_Archive();
 		} elseif ( is_single() ) {
-			$this->OGP = new Inc2734_WP_OGP_Single();
+			$this->ogp = new Inc2734_WP_OGP_Single();
 		} elseif ( is_category() ) {
-			$this->OGP = new Inc2734_WP_OGP_Category();
+			$this->ogp = new Inc2734_WP_OGP_Category();
 		} elseif ( is_tag() ) {
-			$this->OGP = new Inc2734_WP_OGP_Tag();
+			$this->ogp = new Inc2734_WP_OGP_Tag();
 		} elseif ( is_author() ) {
-			$this->OGP = new Inc2734_WP_OGP_Author();
+			$this->ogp = new Inc2734_WP_OGP_Author();
 		} elseif ( is_day() ) {
-			$this->OGP = new Inc2734_WP_OGP_Day();
+			$this->ogp = new Inc2734_WP_OGP_Day();
 		} elseif ( is_month() ) {
-			$this->OGP = new Inc2734_WP_OGP_Month();
+			$this->ogp = new Inc2734_WP_OGP_Month();
 		} elseif ( is_year() ) {
-			$this->OGP = new Inc2734_WP_OGP_Year();
+			$this->ogp = new Inc2734_WP_OGP_Year();
 		} elseif ( is_home() && ! is_front_page() ) {
-			$this->OGP = new Inc2734_WP_OGP_Home();
+			$this->ogp = new Inc2734_WP_OGP_Home();
 		} elseif ( is_front_page() ) {
-			$this->OGP = new Inc2734_WP_OGP_Front_Page();
+			$this->ogp = new Inc2734_WP_OGP_Front_Page();
 		}
 	}
 
 	public function get_title() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_title', $this->OGP->get_title() );
+		return apply_filters( 'inc2734_wp_ogp_title', $this->ogp->get_title() );
 	}
 
 	public function get_type() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_type', $this->OGP->get_type() );
+		return apply_filters( 'inc2734_wp_ogp_type', $this->ogp->get_type() );
 	}
 
 	public function get_url() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_url', $this->OGP->get_url() );
+		return apply_filters( 'inc2734_wp_ogp_url', $this->ogp->get_url() );
 	}
 
 	public function get_image() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_image', $this->OGP->get_image() );
+		return apply_filters( 'inc2734_wp_ogp_image', $this->ogp->get_image() );
 	}
 
 	public function get_description() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		$description = $this->OGP->get_description();
+		$description = $this->ogp->get_description();
 
 		if ( empty( $description ) ) {
 			$description = wp_strip_all_tags( get_bloginfo( 'description' ) );
@@ -97,16 +108,16 @@ class Inc2734_WP_OGP {
 	}
 
 	public function get_site_name() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_site_name', $this->OGP->get_site_name() );
+		return apply_filters( 'inc2734_wp_ogp_site_name', $this->ogp->get_site_name() );
 	}
 
 	public function get_locale() {
-		if ( ! $this->OGP ) {
+		if ( ! $this->ogp ) {
 			return;
 		}
-		return apply_filters( 'inc2734_wp_ogp_locale', $this->OGP->get_locale() );
+		return apply_filters( 'inc2734_wp_ogp_locale', $this->ogp->get_locale() );
 	}
 }

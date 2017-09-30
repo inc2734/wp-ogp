@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * OGP for tag archive
+ */
 class Inc2734_WP_OGP_Tag extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$term              = get_queried_object();

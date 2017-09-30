@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * OGP for front page
+ */
 class Inc2734_WP_OGP_Front_Page extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$show_on_front = get_option( 'show_on_front' );

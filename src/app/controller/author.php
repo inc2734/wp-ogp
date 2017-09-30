@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * OGP for author archive
+ */
 class Inc2734_WP_OGP_Author extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$author            = get_queried_object();

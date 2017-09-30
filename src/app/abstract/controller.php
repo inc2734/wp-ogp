@@ -5,14 +5,44 @@
  * @license GPL-2.0+
  */
 
+/**
+ * Abstract OGP output controller each pages
+ */
 abstract class Inc2734_WP_OGP_Abstract_Controller {
 
+	/**
+	 * @var string
+	 */
 	protected $title;
+
+	/**
+	 * @var string
+	 */
 	protected $type;
+
+	/**
+	 * @var string
+	 */
 	protected $url;
+
+	/**
+	 * @var string
+	 */
 	protected $image;
+
+	/**
+	 * @var string
+	 */
 	protected $description;
+
+	/**
+	 * @var string
+	 */
 	protected $site_name;
+
+	/**
+	 * @var string
+	 */
 	protected $locale;
 
 	public function __construct() {
@@ -66,7 +96,7 @@ abstract class Inc2734_WP_OGP_Abstract_Controller {
 	 *
 	 * @return string
 	 */
-	protected function _get_description( $post = null) {
+	protected function _get_description( $post = null ) {
 		$post = get_post( $post );
 
 		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) ) );

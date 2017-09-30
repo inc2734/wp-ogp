@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * OGP for single
+ */
 class Inc2734_WP_OGP_Single extends Inc2734_WP_OGP_Abstract_Controller {
 	public function init() {
 		$this->title       = get_the_title();
