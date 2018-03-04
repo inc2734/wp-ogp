@@ -114,7 +114,7 @@ class OGPTest extends WP_UnitTestCase {
 		$year = date( 'Y', strtotime( $newest_post->post_date ) );
 		$this->go_to( get_year_link( $year ) );
 		$ogp = new \Inc2734\WP_OGP\OGP();
-		$ogp_year = new \Inc2734_WP_OGP_Year();
+		$ogp_year = new Inc2734\WP_OGP\App\Controller\Year();
 		$this->assertEquals( $ogp_year->get_title(), $ogp->get_title() );
 		$this->assertEquals( 'blog', $ogp->get_type() );
 		$this->assertEquals( get_year_link( $year ), $ogp->get_url() );
@@ -130,7 +130,7 @@ class OGPTest extends WP_UnitTestCase {
 		$month = date( 'n', strtotime( $newest_post->post_date ) );
 		$this->go_to( get_month_link( $year, $month ) );
 		$ogp = new \Inc2734\WP_OGP\OGP();
-		$ogp_month = new \Inc2734_WP_OGP_Month();
+		$ogp_month = new Inc2734\WP_OGP\App\Controller\Month();
 		$this->assertEquals( $ogp_month->get_title(), $ogp->get_title() );
 		$this->assertEquals( 'blog', $ogp->get_type() );
 		$this->assertEquals( get_month_link( $year, $month ), $ogp->get_url() );
@@ -147,7 +147,7 @@ class OGPTest extends WP_UnitTestCase {
 		$day   = date( 'j', strtotime( $newest_post->post_date ) );
 		$this->go_to( get_day_link( $year, $month, $day ) );
 		$ogp = new \Inc2734\WP_OGP\OGP();
-		$ogp_day = new \Inc2734_WP_OGP_Day();
+		$ogp_day = new Inc2734\WP_OGP\App\Controller\Day();
 		$this->assertEquals( $ogp_day->get_title(), $ogp->get_title() );
 		$this->assertEquals( 'blog', $ogp->get_type() );
 		$this->assertEquals( get_day_link( $year, $month, $day ), $ogp->get_url() );

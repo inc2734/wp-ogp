@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for home
- */
-class Inc2734_WP_OGP_Home extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Home extends AbstractController {
 	public function init() {
 		$show_on_front  = get_option( 'show_on_front' );
 		$page_for_posts = get_option( 'page_for_posts' );

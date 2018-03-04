@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for day archive
- */
-class Inc2734_WP_OGP_Day extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Day extends AbstractController {
 	public function init() {
 		$year = get_query_var( 'year' );
 		if ( $year ) {

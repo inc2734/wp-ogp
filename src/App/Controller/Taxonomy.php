@@ -5,15 +5,14 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for tag archive
- */
-class Inc2734_WP_OGP_Tag extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Taxonomy extends AbstractController {
 	public function init() {
 		$term              = get_queried_object();
-		$this->title       = single_tag_title( '', false );
+		$this->title       = $term->name;
 		$this->type        = 'blog';
 		$this->url         = get_term_link( $term );
-		$this->description = wp_strip_all_tags( tag_description( $term->term_id ) );
+		$this->description = wp_strip_all_tags( term_description( $term->term_id, $term->taxonomy ) );
 	}
 }

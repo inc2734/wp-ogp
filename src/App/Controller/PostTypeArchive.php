@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for post type archive
- */
-class Inc2734_WP_OGP_Post_Type_Archive extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class PostTypeArchive extends AbstractController {
 	public function init() {
 		global $wp_query;
 

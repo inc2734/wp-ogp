@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * Abstract OGP output controller each pages
- */
-abstract class Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+abstract class AbstractController {
 
 	/**
 	 * @var string

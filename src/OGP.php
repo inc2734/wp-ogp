@@ -7,6 +7,8 @@
 
 namespace Inc2734\WP_OGP;
 
+use Inc2734\WP_OGP\App\Controller;
+
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
  */
@@ -22,31 +24,31 @@ class OGP {
 	 */
 	public function __construct() {
 		if ( is_tax() ) {
-			$this->ogp = new Inc2734_WP_OGP_Taxonomy();
+			$this->ogp = new Controller\Taxonomy();
 		} elseif ( is_attachment() ) {
-			$this->ogp = new Inc2734_WP_OGP_Attachment();
+			$this->ogp = new Controller\Attachment();
 		} elseif ( is_page() && ! is_front_page() ) {
-			$this->ogp = new Inc2734_WP_OGP_Page();
+			$this->ogp = new Controller\Page();
 		} elseif ( is_post_type_archive() ) {
-			$this->ogp = new Inc2734_WP_OGP_Post_Type_Archive();
+			$this->ogp = new Controller\PostTypeArchive();
 		} elseif ( is_single() ) {
-			$this->ogp = new Inc2734_WP_OGP_Single();
+			$this->ogp = new Controller\Single();
 		} elseif ( is_category() ) {
-			$this->ogp = new Inc2734_WP_OGP_Category();
+			$this->ogp = new Controller\Category();
 		} elseif ( is_tag() ) {
-			$this->ogp = new Inc2734_WP_OGP_Tag();
+			$this->ogp = new Controller\Tag();
 		} elseif ( is_author() ) {
-			$this->ogp = new Inc2734_WP_OGP_Author();
+			$this->ogp = new Controller\Author();
 		} elseif ( is_day() ) {
-			$this->ogp = new Inc2734_WP_OGP_Day();
+			$this->ogp = new Controller\Day();
 		} elseif ( is_month() ) {
-			$this->ogp = new Inc2734_WP_OGP_Month();
+			$this->ogp = new Controller\Month();
 		} elseif ( is_year() ) {
-			$this->ogp = new Inc2734_WP_OGP_Year();
+			$this->ogp = new Controller\Year();
 		} elseif ( is_home() && ! is_front_page() ) {
-			$this->ogp = new Inc2734_WP_OGP_Home();
+			$this->ogp = new Controller\Home();
 		} elseif ( is_front_page() ) {
-			$this->ogp = new Inc2734_WP_OGP_Front_Page();
+			$this->ogp = new Controller\FrontPage();
 		}
 	}
 

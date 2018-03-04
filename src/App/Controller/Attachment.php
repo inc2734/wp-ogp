@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for attachment
- */
-class Inc2734_WP_OGP_Attachment extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Attachment extends AbstractController {
 	public function init() {
 		$this->title       = get_the_title();
 		$this->type        = 'article';

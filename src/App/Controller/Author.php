@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for author archive
- */
-class Inc2734_WP_OGP_Author extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Author extends AbstractController {
 	public function init() {
 		$author            = get_queried_object();
 		$this->title       = get_the_author_meta( 'display_name', $author->ID );

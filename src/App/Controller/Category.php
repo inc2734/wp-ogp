@@ -5,10 +5,9 @@
  * @license GPL-2.0+
  */
 
-/**
- * OGP for category archive
- */
-class Inc2734_WP_OGP_Category extends Inc2734_WP_OGP_Abstract_Controller {
+namespace Inc2734\WP_OGP\App\Controller;
+
+class Category extends AbstractController {
 	public function init() {
 		$term              = get_queried_object();
 		$this->title       = single_cat_title( '', false );
