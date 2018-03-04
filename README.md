@@ -15,10 +15,6 @@ $ composer require inc2734/wp-ogp
 add_action( 'wp_head', function() {
   // When Using composer auto loader
   $ogp = new Inc2734\WP_OGP\OGP();
-
-  // When not Using composer auto loader
-  // include_once( get_theme_file_path( '/vendor/inc2734/wp-ogp/src/wp-ogp.php' ) );
-  // $ogp = new Inc2734_WP_OGP();
   ?>
   <meta property="og:title" content="<?php echo esc_attr( $ogp->get_title() ); ?>">
   <meta property="og:type" content="<?php echo esc_attr( $ogp->get_type() ); ?>">
