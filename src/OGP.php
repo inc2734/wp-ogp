@@ -90,13 +90,7 @@ class OGP {
 			$description = wp_strip_all_tags( get_bloginfo( 'description' ) );
 		}
 
-		return wp_trim_words(
-			str_replace(
-				array( "\r", "\n" ),
-				'',
-				apply_filters( 'inc2734_wp_ogp_description', $description )
-			)
-		);
+		return apply_filters( 'inc2734_wp_ogp_description', $description );
 	}
 
 	public function get_site_name() {

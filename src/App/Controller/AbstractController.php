@@ -93,20 +93,39 @@ abstract class AbstractController {
 	/**
 	 * Return post|page description
 	 *
+	 * @return int|WP_Post $post
 	 * @return string
 	 */
 	protected function _get_description( $post = null ) {
 		$post = get_post( $post );
 
-		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) ) );
+		if ( ! $post ) {
+			return;
+		}
+
+		$description = $this->_strip_linebreaks( wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) ) );
 		if ( $description ) {
 			return $description;
 		}
 
-		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
+		$description = $this->_strip_linebreaks( wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) ) );
 		if ( $description ) {
 			return $description;
 		}
+	}
+
+	/**
+	 * Return linebreaks stripped content
+	 *
+	 * @param string $content
+	 * @return string
+	 */
+	protected function _strip_linebreaks( $content ) {
+		return str_replace(
+			[ "\r", "\n" ],
+			'',
+			$content
+		);
 	}
 
 	/**
