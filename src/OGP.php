@@ -106,4 +106,11 @@ class OGP {
 		}
 		return apply_filters( 'inc2734_wp_ogp_locale', $this->ogp->get_locale() );
 	}
+
+	public function get_app_id() {
+		if ( ! $this->ogp ) {
+			return;
+		}
+		return apply_filters( 'inc2734_wp_ogp_app_id', $this->ogp->get_app_id() );
+	}
 }

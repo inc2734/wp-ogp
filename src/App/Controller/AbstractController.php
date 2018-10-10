@@ -44,6 +44,11 @@ abstract class AbstractController {
 	 */
 	protected $locale;
 
+	/**
+	 * @var string
+	 */
+	protected $app_id;
+
 	public function __construct() {
 		$locale = get_locale();
 		if ( 5 > strlen( $locale ) ) {
@@ -88,6 +93,10 @@ abstract class AbstractController {
 
 	public function get_locale() {
 		return $this->locale;
+	}
+
+	public function get_app_id() {
+		return $this->app_id;
 	}
 
 	/**
