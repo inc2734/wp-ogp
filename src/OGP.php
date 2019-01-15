@@ -23,6 +23,10 @@ class OGP {
 	 * @SuppressWarnings(PHPMD.CyclomaticComplexity)
 	 */
 	public function __construct() {
+		if ( is_search() || is_404() ) {
+			return;
+		}
+
 		if ( is_tax() ) {
 			$this->ogp = new Controller\Taxonomy();
 		} elseif ( is_attachment() ) {
