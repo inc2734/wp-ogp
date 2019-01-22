@@ -14,7 +14,7 @@ $ composer require inc2734/wp-ogp
 <?php
 add_action( 'wp_head', function() {
   // When Using composer auto loader
-  $ogp = new Inc2734\WP_OGP\OGP();
+  $ogp = new \Inc2734\WP_OGP\Bootsrap();
   ?>
   <meta property="og:title" content="<?php echo esc_attr( $ogp->get_title() ); ?>">
   <meta property="og:type" content="<?php echo esc_attr( $ogp->get_type() ); ?>">
