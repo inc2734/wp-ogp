@@ -112,12 +112,12 @@ abstract class AbstractController {
 			return;
 		}
 
-		$description = $this->_strip_linebreaks( wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) ) );
+		$description = wp_strip_all_tags( strip_shortcodes( $post->post_excerpt ) );
 		if ( $description ) {
 			return $description;
 		}
 
-		$description = $this->_strip_linebreaks( wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) ) );
+		$description = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post->post_content ) ) );
 		if ( $description ) {
 			return $description;
 		}

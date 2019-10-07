@@ -13,6 +13,6 @@ class Taxonomy extends AbstractController {
 		$this->title       = $term->name;
 		$this->type        = 'blog';
 		$this->url         = get_term_link( $term );
-		$this->description = wp_strip_all_tags( term_description( $term->term_id, $term->taxonomy ) );
+		$this->description = $this->_strip_linebreaks( wp_strip_all_tags( term_description( $term->term_id, $term->taxonomy ) ) );
 	}
 }

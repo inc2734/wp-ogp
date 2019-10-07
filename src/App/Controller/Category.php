@@ -13,6 +13,6 @@ class Category extends AbstractController {
 		$this->title       = single_cat_title( '', false );
 		$this->type        = 'blog';
 		$this->url         = get_term_link( $term );
-		$this->description = wp_strip_all_tags( category_description( $term->term_id ) );
+		$this->description = $this->_strip_linebreaks( wp_strip_all_tags( category_description( $term->term_id ) ) );
 	}
 }
