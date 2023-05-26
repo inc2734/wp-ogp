@@ -130,8 +130,12 @@ abstract class AbstractController {
 	 * @return string
 	 */
 	protected function _strip_linebreaks( $content ) {
+		if ( false === $content || is_null( $content ) ) {
+			return $content;
+		}
+
 		return str_replace(
-			[ "\r", "\n" ],
+			array( "\r", "\n" ),
 			'',
 			$content
 		);
@@ -174,7 +178,7 @@ abstract class AbstractController {
 				11 => 'November',
 				12 => 'December',
 			);
-			$month = $monthes[ $month ];
+			$month   = $monthes[ $month ];
 		}
 		return $month;
 	}

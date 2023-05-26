@@ -20,7 +20,7 @@ class Bootstrap {
 		}
 
 		$controllers = array_filter(
-			[
+			array(
 				'Taxonomy'        => is_tax(),
 				'Attachment'      => is_attachment(),
 				'Page'            => is_page() && ! is_front_page(),
@@ -34,7 +34,7 @@ class Bootstrap {
 				'Year'            => is_year(),
 				'Home'            => is_home() && ! is_front_page(),
 				'FrontPage'       => is_front_page(),
-			]
+			)
 		);
 
 		if ( $controllers ) {

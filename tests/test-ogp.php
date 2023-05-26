@@ -1,9 +1,9 @@
 <?php
 class OGP_Test extends WP_UnitTestCase {
 
-	public function setup() {
+	public function set_up() {
 		global $wp_rewrite;
-		parent::setup();
+		parent::set_up();
 
 		$wp_rewrite->init();
 		$wp_rewrite->set_permalink_structure( '/%year%/%monthnum%/%day%/%postname%/' );
@@ -41,8 +41,8 @@ class OGP_Test extends WP_UnitTestCase {
 		$wp_rewrite->flush_rules();
 	}
 
-	public function tearDown() {
-		parent::tearDown();
+	public function tear_down() {
+		parent::tear_down();
 
 		update_option( 'show_on_front', 'posts' );
 		update_option( 'page_on_front', 0 );
